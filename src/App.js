@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import Die from './Die';
 function App() {
@@ -7,23 +8,31 @@ function App() {
       newDice.push(Math.ceil(Math.random() * 6))
     }
     return newDice
- 
   }
+
+  const [dice, setDice] = useState(allNewDice())
+
+  const diceElements =
+    dice.map((value) => {
+      return (
+        <Die 
+          value={value} 
+        />
+      )
+    })
+
+    function handleClick() {
+      setDice(allNewDice())
+    }
+  
 
   return (
     <main className="main">
       <div className="die__container">
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
-        <Die value={1}/>
+        {diceElements}
+        
       </div>
+      <button className='btn' onClick={handleClick}>Roll</button>
     </main>
   );
 }

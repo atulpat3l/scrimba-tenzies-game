@@ -48,6 +48,7 @@ main {
   max-width: 800px;
   border-radius: 5px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -74,4 +75,14 @@ main {
 
 .die__value {
   font-size: 2rem;
+}
+
+.btn {
+  background-color: #4848ff;
+  color: #F5F5F5;
+  margin: 1em;
+  padding: .75em 2.25em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
 }
