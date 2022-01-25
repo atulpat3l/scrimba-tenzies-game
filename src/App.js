@@ -39,17 +39,22 @@ function App() {
   ));
 
   function handleClick() {
-    setDice((oldDice) =>
-      oldDice.map((die) => {
-        return die.isHeld
-          ? die
-          : {
-              value: Math.ceil(Math.random() * 6),
-              isHeld: false,
-              id: nanoid(),
-            };
-      })
-    );
+    if (tenzies) {
+      setTenzies(false);
+      setDice(allNewDice());
+    } else {
+      setDice((oldDice) =>
+        oldDice.map((die) => {
+          return die.isHeld
+            ? die
+            : {
+                value: Math.ceil(Math.random() * 6),
+                isHeld: false,
+                id: nanoid(),
+              };
+        })
+      );
+    }
   }
 
   function holdDice(id) {
